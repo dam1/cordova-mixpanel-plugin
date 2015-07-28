@@ -19,9 +19,8 @@
     </engines>
 
     <js-module src="www/mixpanel.js" name="Mixpanel">
-        <clobbers target="mixpanel"/>
+        <clobbers target="window.plugins.MixPanel"/>
     </js-module>
-
 
     <platform name="android">
 
@@ -34,14 +33,35 @@
 
         <!-- Plugin files -->
         <source-file src="src/android/MixpanelPlugin.java" target-dir="src/android"/>
-        <source-file src="src/libs/mixpanel-android-4.5.3.jar" target-dir="libs/"/>
 
         <!-- AndroidManifest.xml -->
         <!-- see https://github.com/mixpanel/mixpanel-android/blob/master/src/main/AndroidManifest.xml -->
         <config-file target="AndroidManifest.xml" parent="/manifest">
+            <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+            <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
+
             <uses-permission android:name="android.permission.INTERNET"/>
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
         </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver
+              android:name="com.mixpanel.android.mpmetrics.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+                <intent-filter>
+                    <action  android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                    <action  android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                    <category  android:name="$PACKAGE_NAME"/>
+                </intent-filter>
+            </receiver>
+		</config-file>
+
+        <framework src="com.google.android.gms:play-services-base:7.0.0+" />
+        <framework src="com.google.android.gms:play-services-gcm:7.0.0+" />
+        <framework src="com.mixpanel.android:mixpanel-android:4.6.2" />
     </platform>
 
 
