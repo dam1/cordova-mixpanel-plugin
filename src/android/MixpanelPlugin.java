@@ -33,11 +33,13 @@ public class MixpanelPlugin extends CordovaPlugin {
         TRACK("track"),
 
 
+
         // PEOPLE API
 
 
         PEOPLE_SET("people_set"),
-        PEOPLE_IDENTIFY("people_identify");
+        PEOPLE_IDENTIFY("people_identify"),
+        INITIALIZE_HANDLE_PUSH("initialize_handle_push");
 
         private final String name;
         private static final Map<String, Action> lookup = new HashMap<String, Action>();
@@ -93,6 +95,8 @@ public class MixpanelPlugin extends CordovaPlugin {
                 return handlePeopleSet(args, cbCtx);
             case PEOPLE_IDENTIFY:
                 return handlePeopleIdentify(args, cbCtx);
+            case INITIALIZE_HANDLE_PUSH:
+                return handleInitializePushHandling(args, cbCtx);
             default:
                 this.error(cbCtx, "unknown action");
                 return false;
@@ -213,6 +217,17 @@ public class MixpanelPlugin extends CordovaPlugin {
             return false;
         }
         mixpanel.getPeople().set(properties);
+        cbCtx.success();
+        return true;
+    }
+
+    private boolean handleInitializePushHandling(JSONArray args, final CallbackContext cbCtx){
+        String projectId = args.optString(0, "");
+        if (TextUtils.isEmpty(projectId)) {
+            this.error(cbCtx, "missing projectId");
+            return false;
+        }
+        mixpanel.getPeople().initPushHandling(projectId);
         cbCtx.success();
         return true;
     }

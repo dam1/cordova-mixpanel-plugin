@@ -45,6 +45,9 @@ mixpanel.people.set = function(peopleProperties, onSuccess, onFail) {
   exec(onSuccess, onFail, 'Mixpanel', 'people_set', [peopleProperties]);
 };
 
+mixpanel.people.initPushHandling = function(projectId, onSuccess, onFail) {
+  exec(onSuccess, onFail, 'Mixpanel', 'initialize_handle_push', [projectId]);
+};
 
 // Exports
 
