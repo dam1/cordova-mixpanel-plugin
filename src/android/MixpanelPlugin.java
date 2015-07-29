@@ -32,13 +32,12 @@ public class MixpanelPlugin extends CordovaPlugin {
         RESET("reset"),
         TRACK("track"),
 
-
-
         // PEOPLE API
 
 
         PEOPLE_SET("people_set"),
         PEOPLE_IDENTIFY("people_identify"),
+        SET_PUSH_REGISTRATION_ID("set_push_registration_id"),
         INITIALIZE_HANDLE_PUSH("initialize_handle_push");
 
         private final String name;
@@ -97,6 +96,8 @@ public class MixpanelPlugin extends CordovaPlugin {
                 return handlePeopleIdentify(args, cbCtx);
             case INITIALIZE_HANDLE_PUSH:
                 return handleInitializePushHandling(args, cbCtx);
+            case SET_PUSH_REGISTRATION_ID:
+                return handleSetPushRegistrationId(args, cbCtx);
             default:
                 this.error(cbCtx, "unknown action");
                 return false;
@@ -227,10 +228,19 @@ public class MixpanelPlugin extends CordovaPlugin {
             this.error(cbCtx, "missing projectId");
             return false;
         }
-        LOG.e(LOG_TAG, "projectId:" + projectId);
         mixpanel.getPeople().initPushHandling(projectId);
-        LOG.e(LOG_TAG, "Initialized push");
         cbCtx.success();
         return true;
     }
+
+    private boolean handleSetPushRegistrationId(JSONArray args, final CallbackContext cbCtx){
+        String registrationId = args.optString(0, "");
+        if (TextUtils.isEmpty(registrationId)) {
+            this.error(cbCtx, "missing registrationId");
+            return false;
+        }
+        mixpanel.getPeople().setPushRegistrationId(registrationId);
+        cbCtx.success();
+        return true;
+    }    
 }

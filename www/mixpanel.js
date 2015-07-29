@@ -49,6 +49,10 @@ mixpanel.people.initPushHandling = function(projectId, onSuccess, onFail) {
   exec(onSuccess, onFail, 'Mixpanel', 'initialize_handle_push', [projectId]);
 };
 
+mixpanel.people.setPushRegistrationId = function(registrationId, onSuccess, onFail) {
+  exec(onSuccess, onFail, 'Mixpanel', 'set_push_registration_id', [registrationId]);
+};
+
 // Exports
 
 

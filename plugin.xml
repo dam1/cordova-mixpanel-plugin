@@ -19,7 +19,7 @@
     </engines>
 
     <js-module src="www/mixpanel.js" name="Mixpanel">
-        <clobbers target="window.plugins.MixPanel"/>
+        <clobbers target="window.plugins.mixpanel"/>
     </js-module>
 
     <platform name="android">
@@ -45,10 +45,12 @@
             <uses-permission android:name="android.permission.WAKE_LOCK" />
             <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
             <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
+            <meta-data android:name="com.mixpanel.android.MPConfig.ResourcePackageName" android:value="$PACKAGE_NAME" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.mixpanel.android.surveys.SurveyActivity" />
+            <activity android:name="com.mixpanel.android.surveys.SurveyActivity"
+                android:theme="@style/com_mixpanel_android_SurveyActivityTheme"/>
             <receiver
               android:name="com.mixpanel.android.mpmetrics.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
                 <intent-filter>
@@ -57,17 +59,10 @@
                     <category  android:name="$PACKAGE_NAME"/>
                 </intent-filter>
             </receiver>
-            <receiver android:name="com.mixpanel.android.mpmetrics.InstallReferrerReceiver" android:exported="true">
-                <intent-filter>
-                    <action android:name="com.android.vending.INSTALL_REFERRER" />
-                </intent-filter>
-            </receiver>
-            <meta-data android:name="com.mixpanel.android.MPConfig.ResourcePackageName" android:value="$PACKAGE_NAME" />
 		</config-file>
-
         <framework src="com.google.android.gms:play-services-base:7.0.0+" />
         <framework src="com.google.android.gms:play-services-gcm:7.0.0+" />
-        <framework src="com.mixpanel.android:mixpanel-android:4.6.2" />
+        <framework src="com.mixpanel.android:mixpanel-android:4.6.2+" />
     </platform>
 
 
