@@ -227,7 +227,9 @@ public class MixpanelPlugin extends CordovaPlugin {
             this.error(cbCtx, "missing projectId");
             return false;
         }
+        LOG.e(LOG_TAG, "projectId:" + projectId);
         mixpanel.getPeople().initPushHandling(projectId);
+        LOG.e(LOG_TAG, "Initialized push");
         cbCtx.success();
         return true;
     }
