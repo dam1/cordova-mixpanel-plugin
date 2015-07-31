@@ -205,6 +205,36 @@
     [self successWithCallbackId:command.callbackId];
 }
 
+-(void)setShowSurveyOnActive:(CDVInvokedUrlCommand *)command;
+{
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+
+    BOOL showSurveyOnActive = [[command.arguments objectAtIndex:0] boolValue];
+
+    mixpanel.showNotificationOnActive = showSurveyOnActive;
+
+    [self successWithCallbackId:command.callbackId];
+}
+
+-(void)showSurvey:(CDVInvokedUrlCommand *)command;
+{
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+
+    [mixpanel showSurvey];
+
+    [self successWithCallbackId:command.callbackId];
+}
+
+-(void)showSurveyWithID:(CDVInvokedUrlCommand *)command;
+{
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    NSUInteger ID = (NSUInteger)[command.arguments objectAtIndex:0];
+
+    [mixpanel showSurveyWithID:ID];
+
+    [self successWithCallbackId:command.callbackId];
+}
+
 - (void)unregister:(CDVInvokedUrlCommand*)command;
 {
     self.callbackId = command.callbackId;

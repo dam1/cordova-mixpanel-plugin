@@ -44,7 +44,9 @@
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToke;
 - (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
 - (void)notificationReceived;
-
+- (void)setShowSurveyOnActive:(CDVInvokedUrlCommand *)command;
+- (void)showSurvey:(CDVInvokedUrlCommand *)command;
+- (void)showSurveyWithID:(CDVInvokedUrlCommand *)command;
 
 // CALLBACK
 

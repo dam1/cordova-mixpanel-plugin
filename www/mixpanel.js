@@ -87,6 +87,18 @@ mixpanel.ios.setApplicationIconBadgeNumber = function(badge, onSuccess, onFail) 
     }]);
 };
 
+mixpanel.ios.setShowSurveyOnActive = function(bool, onSuccess, onFail){
+  return exec(onSuccess, onFail, "Mixpanel", "setShowSurveyOnActive", [bool]);
+};
+
+mixpanel.ios.showSurvey = function(onSuccess, onFail){
+  return exec(onSuccess, onFail, "Mixpanel", "showSurvey", []);
+};
+
+mixpanel.ios.showSurveyWithID = function(id, onSuccess, onFail){
+  return exec(onSuccess, onFail, "Mixpanel", "showSurveyWithID", [id]);
+};
+
 // Exports
 
 
