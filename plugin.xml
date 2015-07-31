@@ -138,7 +138,6 @@
         <header-file src="src/ios/Mixpanel/UIColor+MPColor.h" />
         <header-file src="src/ios/Mixpanel/UIImage+MPAverageColor.h" />
         <header-file src="src/ios/Mixpanel/UIImage+MPImageEffects.h" />
-        <header-file src="src/ios/Mixpanel/UIView+MPSnapshotImage.h" />
         <header-file src="src/ios/Mixpanel/_MPTweakBindObserver.h" />
         <source-file src="src/ios/Mixpanel/MPABTestDesignerChangeRequestMessage.m" />
         <source-file src="src/ios/Mixpanel/MPABTestDesignerChangeResponseMessage.m" />
