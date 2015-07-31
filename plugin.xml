@@ -198,6 +198,9 @@
         <source-file src="src/ios/Mixpanel/UIImage+MPImageEffects.m" />
         <source-file src="src/ios/Mixpanel/_MPTweakBindObserver.m" />
 
+        <!-- Push -->
+        <header-file src="src/ios/AppDelegate+mixpanel.h" />
+        <source-file src="src/ios/AppDelegate+mixpanel.m" />
 
         <resource-file src="src/ios/Mixpanel/Media.xcassets" />
 
