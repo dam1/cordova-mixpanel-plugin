@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="com.samz.mixpanel"
+        id="mobi.semparar.mixpanel"
         version="1.2.1">
 
     <name>Mixpanel</name>
@@ -10,7 +10,7 @@
         Mixpanel Cordova Plugin for iOS and Android
     </description>
 
-    <repo>https://github.com/samzilverberg/mixpanel-cordova.git</repo>
+    <repo>https://github.com/mobii/mixpanel-cordova.git</repo>
     <author>Sam Zilverberg</author>
     <keywords>mixpanel, cordova, phonegap, ionic, plugin, ios, android</keywords>
 
@@ -22,12 +22,14 @@
         <clobbers target="window.plugins.mixpanel"/>
     </js-module>
 
+    <dependency id="com.phonegap.plugins.pushplugin" url="https://github.com/Mobii/PushPlugin.git" />
+
     <platform name="android">
 
         <!-- config.xml -->
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Mixpanel">
-                <param name="android-package" value="com.samz.cordova.mixpanel.MixpanelPlugin"/>
+                <param name="android-package" value="mobi.semparar.cordova.mixpanel.MixpanelPlugin"/>
             </feature>
         </config-file>
 

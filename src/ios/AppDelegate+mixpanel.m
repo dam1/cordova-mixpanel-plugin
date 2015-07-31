@@ -6,13 +6,14 @@
 //
 //
 
-#import "AppDelegate+notification.h"
+#import "AppDelegate+mixpanel.h"
 #import "MixpanelPlugin.h"
+#import "PushPlugin.h"
 #import <objc/runtime.h>
 
 static char launchNotificationKey;
 
-@implementation AppDelegate (notification)
+@implementation AppDelegate (mixpanel)
 
 - (id) getCommandInstance:(NSString*)className
 {
@@ -32,8 +33,7 @@ static char launchNotificationKey;
 
 - (AppDelegate *)swizzled_init
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createNotificationChecker:)
-                                                 name:@"UIApplicationDidFinishLaunchingNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createNotificationChecker:) name:@"UIApplicationDidFinishLaunchingNotification" object:nil];
 
     // This actually calls the original init method over in AppDelegate. Equivilent to calling super
     // on an overrided method, this is not recursive, although it appears that way. neat huh?
@@ -56,13 +56,17 @@ static char launchNotificationKey;
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"push:%@", @"didRegisterForRemoteNotificationsWithDeviceToken");
-    MixpanelPlugin *pushHandler = [self getCommandInstance:@"Mixpanel"];
+    MixpanelPlugin *mixpanelHandler = [self getCommandInstance:@"Mixpanel"];
+    [mixpanelHandler didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    PushPlugin *pushHandler = [self getCommandInstance:@"PushPlugin"];
     [pushHandler didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"push:%@", @"didFailToRegisterForRemoteNotificationsWithError");
-    MixpanelPlugin *pushHandler = [self getCommandInstance:@"Mixpanel"];
+    MixpanelPlugin *mixpanelHandler = [self getCommandInstance:@"Mixpanel"];
+    [mixpanelHandler didFailToRegisterForRemoteNotificationsWithError:error];
+    PushPlugin *pushHandler = [self getCommandInstance:@"PushPlugin"];
     [pushHandler didFailToRegisterForRemoteNotificationsWithError:error];
 }
 
@@ -75,7 +79,11 @@ static char launchNotificationKey;
     }
 
     if (appState == UIApplicationStateActive) {
-        MixpanelPlugin *pushHandler = [self getCommandInstance:@"Mixpanel"];
+        MixpanelPlugin *mixpanelHandler = [self getCommandInstance:@"Mixpanel"];
+        mixpanelHandler.notificationMessage = userInfo;
+        mixpanelHandler.isInline = YES;
+        [mixpanelHandler notificationReceived];
+        PushPlugin *pushHandler = [self getCommandInstance:@"PushPlugin"];
         pushHandler.notificationMessage = userInfo;
         pushHandler.isInline = YES;
         [pushHandler notificationReceived];
@@ -91,10 +99,14 @@ static char launchNotificationKey;
     application.applicationIconBadgeNumber = 0;
 
     if (self.launchNotification) {
-        MixpanelPlugin *pushHandler = [self getCommandInstance:@"Mixpanel"];
+        MixpanelPlugin *mixpanelHandler = [self getCommandInstance:@"Mixpanel"];
+
+        mixpanelHandler.notificationMessage = self.launchNotification;
+        self.launchNotification = nil;
+        [mixpanelHandler performSelectorOnMainThread:@selector(notificationReceived) withObject:mixpanelHandler waitUntilDone:NO];
+        PushPlugin *pushHandler = [self getCommandInstance:@"PushPlugin"];
 
         pushHandler.notificationMessage = self.launchNotification;
-        self.launchNotification = nil;
         [pushHandler performSelectorOnMainThread:@selector(notificationReceived) withObject:pushHandler waitUntilDone:NO];
     }
 }
