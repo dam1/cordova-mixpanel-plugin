@@ -1,4 +1,4 @@
-package com.samz.cordova.mixpanel;
+package mobi.semparar.cordova.mixpanel;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -242,5 +242,5 @@ public class MixpanelPlugin extends CordovaPlugin {
         mixpanel.getPeople().setPushRegistrationId(registrationId);
         cbCtx.success();
         return true;
-    }    
+    }
 }
