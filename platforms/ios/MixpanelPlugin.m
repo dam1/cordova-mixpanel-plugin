@@ -30,6 +30,10 @@
     }
     else
     {
+        if(originalId == (id)[NSNull null] || 0 == [originalId length])
+        {
+            originalId = mixpanelInstance.distinctId;
+        }
         [mixpanelInstance createAlias:aliasId forDistinctID:originalId];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     }
@@ -157,7 +161,7 @@
     CDVPluginResult* pluginResult = nil;
     Mixpanel* mixpanelInstance = [Mixpanel sharedInstance];
     NSArray* arguments = command.arguments;
-    NSDictionary* peopleProperties = [command.arguments objectAtIndex:0];
+    NSDictionary* peopleProperties = [arguments objectAtIndex:0];
 
     if (mixpanelInstance == nil)
     {

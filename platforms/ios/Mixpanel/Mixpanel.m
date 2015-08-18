@@ -179,7 +179,7 @@ static Mixpanel *sharedInstance = nil;
         [self setUpListeners];
         [self unarchive];
         [self executeCachedVariants];
-        
+
 #ifdef DEBUG
 #ifndef DISABLE_MIXPANEL_AB_DESIGNER
         [self connectToABTestDesigner:YES];
@@ -1344,33 +1344,33 @@ static Mixpanel *sharedInstance = nil;
                 if (showAlert) {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
                     if ([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
-                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"We'd love your feedback!" message:@"Mind taking a quick survey?" preferredStyle:UIAlertControllerStyleAlert];
-                        [alert addAction:[UIAlertAction actionWithTitle:@"No, Thanks" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Seria um prazer ter sua participação!" message:@"Gostaria de responder nossa pesquisa?" preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Não, obrigado" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
                             if (self.currentlyShowingSurvey) {
                                 [self markSurvey:self.currentlyShowingSurvey shown:NO withAnswerCount:0];
                                 self.currentlyShowingSurvey = nil;
                             }
                         }]];
-                        [alert addAction:[UIAlertAction actionWithTitle:@"Sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Sim" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             if (self.currentlyShowingSurvey) {
                                 [self presentSurveyWithRootViewController:self.currentlyShowingSurvey];
                             }
                         }]];
                         [[Mixpanel topPresentedViewController] presentViewController:alert animated:YES completion:nil];
                     } else {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We'd love your feedback!"
-                                                                        message:@"Mind taking a quick survey?"
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Seria um prazer ter sua participação!"
+                                                                        message:@"Gostaria de responder nossa pesquisa?"
                                                                        delegate:self
-                                                              cancelButtonTitle:@"No, Thanks"
-                                                              otherButtonTitles:@"Sure", nil];
+                                                              cancelButtonTitle:@"Não, obrigado"
+                                                              otherButtonTitles:@"Sim", nil];
                         [alert show];
                     }
 #else
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We'd love your feedback!"
-                                                                    message:@"Mind taking a quick survey?"
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Seria um prazer ter sua participação!"
+                                                                    message:@"Gostaria de responder nossa pesquisa?"
                                                                    delegate:self
-                                                          cancelButtonTitle:@"No, Thanks"
-                                                          otherButtonTitles:@"Sure", nil];
+                                                          cancelButtonTitle:@"Não, obrigado"
+                                                          otherButtonTitles:@"Sim", nil];
                     [alert show];
 #endif
                 } else {
@@ -1725,7 +1725,7 @@ static Mixpanel *sharedInstance = nil;
             [variant execute];
             [self markVariantRun:variant];
         }
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (experimentsLoadedCallback) {
                 experimentsLoadedCallback();

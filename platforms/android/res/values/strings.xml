@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="com_mixpanel_android_survey_prompt_dialog_title">Menssagem do Sem Parar</string>
+    <string name="com_mixpanel_android_survey_prompt_dialog_message">Ler agora?</string>
+    <string name="com_mixpanel_android_sure">Sim</string>
+    <string name="com_mixpanel_android_no_thanks">Não</string>
+</resources>

@@ -249,7 +249,7 @@ typedef NS_ENUM(NSInteger, MPSurveyTableViewCellPosition) {
     } else if ([value isKindOfClass:[NSNumber class]]) {
         int i = [value intValue];
         if (CFNumberGetType((CFNumberRef)value) == kCFNumberCharType && (i == 0 || i == 1)) {
-            label = i ? @"Yes" : @"No";
+            label = i ? @"Sim" : @"Não";
         } else {
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -258,7 +258,7 @@ typedef NS_ENUM(NSInteger, MPSurveyTableViewCellPosition) {
     } else if ([value isKindOfClass:[NSNull class]]) {
         label = @"None";
     } else {
-        MixpanelError(@"%@ unexpected value for survey choice: %@", self, value);
+        MixpanelError(@"%@ valor inesperado: %@", self, value);
         label = [value description];
     }
     return label;
@@ -378,7 +378,7 @@ typedef NS_ENUM(NSInteger, MPSurveyTableViewCellPosition) {
         shouldChange = newLength <= 255;
         if (shouldChange) {
             [UIView animateWithDuration:0.3 animations:^{
-                self.charactersLeftLabel.text = [NSString stringWithFormat:@"%@ character%@ left", @(255 - newLength), (255 - newLength == 1) ? @"": @"s"];
+                self.charactersLeftLabel.text = [NSString stringWithFormat:@"%@ caracteres %@ restantes", @(255 - newLength), (255 - newLength == 1) ? @"": @"s"];
                 self.charactersLeftLabel.alpha = (newLength > 155) ? 1 : 0;
             }];
         }
