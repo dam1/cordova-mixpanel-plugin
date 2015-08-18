@@ -1,4 +1,4 @@
-cordova.define("mobi.semparar.mixpanel.Mixpanel", function(require, exports, module) { 'use strict';
+'use strict';
 
 var exec = require('cordova/exec'),
     mixpanel = {
@@ -103,5 +103,3 @@ mixpanel.ios.showSurveyWithID = function(id, onSuccess, onFail){
 
 
 module.exports = mixpanel;
-
-});
