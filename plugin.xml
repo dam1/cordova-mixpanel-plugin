@@ -61,7 +61,7 @@
             </receiver>
 		</config-file>
 
-        <source-file src="src/libs/mixpanel-android-4.6.3.jar" target-dir="libs/"/>
+        <source-file src="src/libs/mixpanel-android-4.6.3.aar" target-dir="libs/"/>
     </platform>
 
 
