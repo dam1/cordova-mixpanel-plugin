@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="mobi.semparar.mixpanel"
-        version="1.2.1">
+        version="2.0.6">
 
     <name>Mixpanel</name>
 
@@ -22,8 +22,6 @@
         <clobbers target="window.plugins.mixpanel"/>
     </js-module>
 
-    <dependency id="com.phonegap.plugins.PushPlugin" url="https://github.com/phonegap-build/PushPlugin.git" />
-
     <platform name="android">
 
         <!-- config.xml -->
@@ -34,7 +32,9 @@
         </config-file>
 
         <!-- Plugin files -->
-        <source-file src="platforms/android/MixpanelPlugin.java" target-dir="src/mobi/semparar/app"/>
+
+        <source-file src="src/android/MixpanelPlugin.java" target-dir="src/android"/>
+        <source-file src="src/libs/mixpanel-android-4.6.3.aar" target-dir="libs/"/>
 
         <!-- Strings.xml -->
         <config-file parent="/resources" target="res/values/strings.xml">
@@ -78,7 +78,6 @@
 		</config-file>
         <framework src="com.google.android.gms:play-services-base:7.0.0+" />
         <framework src="com.google.android.gms:play-services-gcm:7.0.0+" />
-        <framework src="com.mixpanel.android:mixpanel-android:4.6.2+" />
     </platform>
 
 
