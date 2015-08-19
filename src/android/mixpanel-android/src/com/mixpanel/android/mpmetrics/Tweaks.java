@@ -1,6 +1,5 @@
 package com.mixpanel.android.mpmetrics;
 
-import android.support.annotation.IntDef;
 import android.util.Log;
 
 import java.lang.annotation.Retention;
@@ -57,12 +56,6 @@ public class Tweaks {
         return new HashMap<String, TweakValue>(mTweakValues);
     }
 
-    @IntDef({
-            BOOLEAN_TYPE,
-            DOUBLE_TYPE,
-            LONG_TYPE,
-            STRING_TYPE
-    })
 
     @Retention(RetentionPolicy.SOURCE)
     private @interface TweakType {}
