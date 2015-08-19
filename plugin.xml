@@ -60,6 +60,8 @@
             </receiver>
 		</config-file>
 
+        <framework src="com.google.android.gms:play-services-base:7.0.0+" />
+        <framework src="com.google.android.gms:play-services-gcm:7.0.0+" />
         <framework src="src/android/mixpanel-android" custom="true"/>
     </platform>
 
