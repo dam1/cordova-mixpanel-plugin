@@ -60,7 +60,7 @@
             </receiver>
 		</config-file>
 
-        <framework src="src/android/mixpanel-android/src/main/" custom="true"/>
+        <framework src="src/android/mixpanel-android" custom="true"/>
     </platform>
 
 
