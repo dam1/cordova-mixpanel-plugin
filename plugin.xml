@@ -30,9 +30,6 @@
             </feature>
         </config-file>
 
-        <!-- Plugin files -->
-        <source-file src="src/android/MixpanelPlugin.java" target-dir="src/android"/>
-
         <!-- AndroidManifest.xml -->
         <!-- see https://github.com/mixpanel/mixpanel-android/blob/master/src/main/AndroidManifest.xml -->
         <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -60,7 +57,11 @@
             </receiver>
 		</config-file>
 
-        <framework src="src/android/Mixpanel" custom="true"/>
+        <framework src="src/android/mixpanel-android" custom="true"/>
+
+        <!-- Plugin files -->
+        <source-file src="src/android/MixpanelPlugin.java" target-dir="src/android"/>
+
     </platform>
 
 

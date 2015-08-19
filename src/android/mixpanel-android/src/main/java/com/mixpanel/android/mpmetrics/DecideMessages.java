@@ -190,7 +190,7 @@ import java.util.Set;
     private final OnNewResultsListener mListener;
     private final UpdatesFromMixpanel mUpdatesFromMixpanel;
     private JSONArray mVariants;
-    private static final Set<Integer> mLoadedVariants = new HashSet<>();
+    private static final Set<Integer> mLoadedVariants = new HashSet<Integer>();
 
     @SuppressWarnings("unused")
     private static final String LOGTAG = "MixpanelAPI.DecideUpdts";
