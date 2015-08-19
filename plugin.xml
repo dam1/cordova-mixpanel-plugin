@@ -23,6 +23,132 @@
     </js-module>
 
     <platform name="android">
+        <source-file src="res/anim/com_mixpanel_android_fade_in.xml" target-dir="res/anim" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_checkmark.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/anim/com_mixpanel_android_fade_out.xml" target-dir="res/anim" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_bell.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/anim/com_mixpanel_android_slide_down.xml" target-dir="res/anim" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_clipboard_checkmark.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_arrowleft.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_coin.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_arrowleft_faded.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_flag.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_arrowright.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_gear.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_arrowright_faded.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_inbox.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_checkmark.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_megaphone.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_bell.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_phone.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_clipboard_checkmark.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_rocket.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_coin.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_sale_tag.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_flag.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_sync.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_gear.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_trophy.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_inbox.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_vip.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_megaphone.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_ic_warning.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_phone.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_logo.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_rocket.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_square_dropshadow.9.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_sale_tag.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_square_nodropshadow.9.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_sync.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_arrowleft.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_trophy.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_arrowleft_faded.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_vip.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_arrowright.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_ic_warning.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_arrowright_faded.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_logo.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_checkmark.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_square_dropshadow.9.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_bell.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-hdpi-v4/com_mixpanel_android_square_nodropshadow.9.png" target-dir="res/drawable-hdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_clipboard_checkmark.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-ldpi-v4/com_mixpanel_android_arrowleft.png" target-dir="res/drawable-ldpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_coin.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-ldpi-v4/com_mixpanel_android_arrowleft_faded.png" target-dir="res/drawable-ldpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_flag.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-ldpi-v4/com_mixpanel_android_arrowright.png" target-dir="res/drawable-ldpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_gear.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-ldpi-v4/com_mixpanel_android_arrowright_faded.png" target-dir="res/drawable-ldpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_inbox.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-ldpi-v4/com_mixpanel_android_checkmark.png" target-dir="res/drawable-ldpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_megaphone.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-ldpi-v4/com_mixpanel_android_logo.png" target-dir="res/drawable-ldpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_phone.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_arrowleft.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_rocket.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_arrowleft_faded.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_sale_tag.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_arrowright.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_sync.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_arrowright_faded.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_trophy.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_checkmark.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_vip.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_bell.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_ic_warning.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_clipboard_checkmark.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_logo.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_coin.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_square_dropshadow.9.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_flag.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable-xxhdpi-v4/com_mixpanel_android_square_nodropshadow.9.png" target-dir="res/drawable-xxhdpi-v4" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_gear.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_arrowleft_insets.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_inbox.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_arrowleft_states.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_megaphone.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_arrowright_insets.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_phone.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_arrowright_states.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_rocket.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_checkmark_states.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_sale_tag.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_choice_first_states.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_sync.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_choice_last_states.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_trophy.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_choice_middle_states.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_vip.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_cta_button.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_ic_warning.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_cta_button_highlight.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_logo.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_nocolor_list.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_square_dropshadow.9.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/drawable/com_mixpanel_android_text_answer_border.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable-mdpi-v4/com_mixpanel_android_square_nodropshadow.9.png" target-dir="res/drawable-mdpi-v4" />
+        <source-file src="res/layout-land/com_mixpanel_android_activity_notification_full.xml" target-dir="res/layout-land" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_close.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_activity_notification_full.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_rounded_bottom.9.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_activity_notification_mini.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_rounded_bottom_selected.9.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_activity_survey.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_rounded_top.9.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_first_choice_answer.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_rounded_top_selected.9.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_last_choice_answer.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_square.9.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_middle_choice_answer.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-nodpi-v4/com_mixpanel_android_square_selected.9.png" target-dir="res/drawable-nodpi-v4" />
+        <source-file src="res/layout/com_mixpanel_android_question_card.xml" target-dir="res/layout" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_arrowleft.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_arrowleft_faded.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/values-v11/values.xml" target-dir="res/values-v11" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_arrowright.png" target-dir="res/drawable-xhdpi-v4" />
+        <source-file src="res/values-v14/values.xml" target-dir="res/values-v14" />
+        <source-file src="res/drawable-xhdpi-v4/com_mixpanel_android_arrowright_faded.png" target-dir="res/drawable-xhdpi-v4" />
 
         <!-- config.xml -->
         <config-file target="res/xml/config.xml" parent="/*">
@@ -33,8 +159,40 @@
 
         <!-- Plugin files -->
 
+        <source-file src="src/libs/mixpanel-android-annotations.zip" target-dir="libs/"/>
+        <source-file src="src/libs/mixpanel-android-4.6.3.jar" target-dir="libs/"/>
         <source-file src="src/android/MixpanelPlugin.java" target-dir="src/android"/>
-        <source-file src="src/libs/mixpanel-android-4.6.3.aar" target-dir="libs/"/>
+
+        <!-- Strings.xml -->
+        <config-file parent="/resources" target="res/values/values.xml">
+            <eat-comment/>
+            <color name="com_mixpanel_android_selected">#66ffffff</color>
+            <string name="com_mixpanel_android_close">Close</string>
+            <string name="com_mixpanel_android_done">Done</string>
+            <string name="com_mixpanel_android_exit">Exit</string>
+            <string name="com_mixpanel_android_logo">By Mixpanel</string>
+            <string name="com_mixpanel_android_next">Next question</string>
+            <string name="com_mixpanel_android_no_thanks">No, Thanks</string>
+            <string name="com_mixpanel_android_notification_image">Image not displayed</string>
+            <string name="com_mixpanel_android_previous">Previous question</string>
+            <string name="com_mixpanel_android_sure">Sure</string>
+            <string name="com_mixpanel_android_survey_prompt_dialog_message">Mind taking a quick survey?</string>
+            <string name="com_mixpanel_android_survey_prompt_dialog_title">We\'d love your feedback!</string>
+            <!-- From: file:/Users/octavioturra/Development/mixpanel-android/src/main/res/values/styles.xml -->
+            <eat-comment/>
+            <style name="com_mixpanel_android_SurveyActivityAnimation">
+            <item name="android:windowEnterAnimation">@anim/com_mixpanel_android_fade_in</item>
+            <item name="android:windowExitAnimation">@anim/com_mixpanel_android_fade_out</item>
+          </style>
+            <style name="com_mixpanel_android_SurveyActivityTheme" parent="android:Theme">
+            <item name="android:windowIsTranslucent">true</item>
+            <item name="android:windowBackground">@android:color/transparent</item>
+            <item name="android:windowContentOverlay">@null</item>
+            <item name="android:windowNoTitle">true</item>
+            <item name="android:backgroundDimEnabled">false</item>
+            <item name="android:windowAnimationStyle">@style/com_mixpanel_android_SurveyActivityAnimation</item>
+          </style>
+        </config-file>
 
         <!-- Strings.xml -->
         <config-file parent="/resources" target="res/values/strings.xml">
@@ -50,6 +208,7 @@
             <string name="com_mixpanel_android_sure">Sim</string>
             <string name="com_mixpanel_android_no_thanks">Não</string>
         </config-file>
+
         <!-- AndroidManifest.xml -->
         <!-- see https://github.com/mixpanel/mixpanel-android/blob/master/src/main/AndroidManifest.xml -->
         <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -76,8 +235,6 @@
                 </intent-filter>
             </receiver>
 		</config-file>
-        <framework src="com.google.android.gms:play-services-base:7.0.0+" />
-        <framework src="com.google.android.gms:play-services-gcm:7.0.0+" />
     </platform>
 
 
