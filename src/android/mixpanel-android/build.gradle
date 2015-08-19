@@ -48,6 +48,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     debugCompile project(path: ':CordovaLib', configuration: 'debug')
     releaseCompile project(path: ':CordovaLib', configuration: 'release')
+    compile 'com.google.android.gms:play-services:7.5.0'
 }
 
 android {
