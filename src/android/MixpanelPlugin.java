@@ -4,8 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
-import java.util.Map;
+import java.util.Map;;
 import java.util.HashMap;
+import java.util.Iterator
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -13,6 +14,53 @@ import org.apache.cordova.LOG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+public class JSONHelper {
+    public static Map<String, Object> jsonToMap(JSONObject json) throws JSONException {
+        Map<String, Object> retMap = new HashMap<String, Object>();
+
+        if(json != JSONObject.NULL) {
+            retMap = toMap(json);
+        }
+        return retMap;
+    }
+
+    public static Map<String, Object> toMap(JSONObject object) throws JSONException {
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        Iterator<String> keysItr = object.keys();
+        while(keysItr.hasNext()) {
+            String key = keysItr.next();
+            Object value = object.get(key);
+
+            if(value instanceof JSONArray) {
+                value = toList((JSONArray) value);
+            }
+
+            else if(value instanceof JSONObject) {
+                value = toMap((JSONObject) value);
+            }
+            map.put(key, value);
+        }
+        return map;
+    }
+
+    public static List<Object> toList(JSONArray array) throws JSONException {
+        List<Object> list = new ArrayList<Object>();
+        for(int i = 0; i < array.length(); i++) {
+            Object value = array.get(i);
+            if(value instanceof JSONArray) {
+                value = toList((JSONArray) value);
+            }
+
+            else if(value instanceof JSONObject) {
+                value = toMap((JSONObject) value);
+            }
+            list.add(value);
+        }
+        return list;
+    }
+}
 
 public class MixpanelPlugin extends CordovaPlugin {
 
@@ -37,6 +85,9 @@ public class MixpanelPlugin extends CordovaPlugin {
 
         PEOPLE_SET("people_set"),
         PEOPLE_IDENTIFY("people_identify"),
+        PEOPLE_INCREMENT("people_increment"),
+        PEOPLE_TRACK_CHARGE("people_track_charge"),
+
         SET_PUSH_REGISTRATION_ID("set_push_registration_id"),
         INITIALIZE_HANDLE_PUSH("initialize_handle_push");
 
@@ -94,6 +145,10 @@ public class MixpanelPlugin extends CordovaPlugin {
                 return handlePeopleSet(args, cbCtx);
             case PEOPLE_IDENTIFY:
                 return handlePeopleIdentify(args, cbCtx);
+            case PEOPLE_INCREMENT:
+                return handlePeopleIncrement(args, cbCtx);
+            case PEOPLE_TRACK_CHARGE:
+                return handlePeopleTrackCharge(args, cbCtx);
             case INITIALIZE_HANDLE_PUSH:
                 return handleInitializePushHandling(args, cbCtx);
             case SET_PUSH_REGISTRATION_ID:
@@ -212,6 +267,39 @@ public class MixpanelPlugin extends CordovaPlugin {
 
 
     private boolean handlePeopleSet(JSONArray args, final CallbackContext cbCtx) {
+        JSONObject properties = args.optJSONObject(0);
+        if (properties == null) {
+            this.error(cbCtx, "missing people properties object");
+            return false;
+        }
+        mixpanel.getPeople().set(properties);
+        cbCtx.success();
+        return true;
+    }
+
+    private boolean handlePeopleIncrement(JSONArray args, final CallbackContext cbCtx) {
+        if (args.optJSONObject(0) == null) {
+            this.error(cbCtx, "missing people action type");
+            return false;
+        }
+        JSONObject properties = args.optJSONObject;
+        if(properties[0]==1){
+            mixpanel.getPeople().increment(properties[1], properties[2]);
+            cbCtx.success();
+            return true;
+        }else if(properties[0]==2){
+            mixpanel.getPeople().increment(jsonToMap(properties[1]));
+            cbCtx.success();
+            return true;
+        }
+    }
+
+    private boolean handlePeopleTrackCharge(JSONArray args, final CallbackContext cbCtx) {
+        cbCtx.success();
+        return true;
+    }
+
+    private boolean handlePeopleTrackCharge(JSONArray args, final CallbackContext cbCtx) {
         JSONObject properties = args.optJSONObject(0);
         if (properties == null) {
             this.error(cbCtx, "missing people properties object");

@@ -47,6 +47,27 @@ mixpanel.people.set = function(peopleProperties, onSuccess, onFail) {
     exec(onSuccess, onFail, 'Mixpanel', 'people_set', [peopleProperties]);
 };
 
+mixpanel.people.increment = function(property, value, onSuccess, onFail){
+    var invert = function(){
+        onFail = onSuccess;
+        onSuccess = value;
+    }
+    var data = [];
+    if(typeof property === 'object'){
+        invert();
+        data = [2, property];
+    } else if(typeof value === 'function'){
+        invert();
+        data = [1, property, 1];
+    } else if(typeof value === 'number'){
+        data = [1, property, value];
+    }
+    exec(onSuccess, onFail, 'Mixpanel', 'people_increment', data);
+}
+mixpanel.people.track_charge = function(value, datails, onSuccess, onFail){
+
+}
+
 mixpanel.android.initPushHandling = function(projectId, onSuccess, onFail) {
     exec(onSuccess, onFail, 'Mixpanel', 'initialize_handle_push', [projectId]);
 };
