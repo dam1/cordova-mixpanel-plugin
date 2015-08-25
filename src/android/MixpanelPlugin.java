@@ -283,7 +283,7 @@ public class MixpanelPlugin extends CordovaPlugin {
                 cbCtx.success();
                 return true;
             } catch(JSONException err){
-                this.error(cbCtx, err);
+                this.error(cbCtx, "JSON conversion error");
                 return false;
             }
         }
