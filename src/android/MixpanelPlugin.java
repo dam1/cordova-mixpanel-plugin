@@ -282,8 +282,8 @@ public class MixpanelPlugin extends CordovaPlugin {
                 mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1)));
                 cbCtx.success();
                 return true;
-            } catch(JSONException ex){
-                this.error(cbCtx, ex.message);
+            } catch(JSONException err){
+                this.error(cbCtx, err);
                 return false;
             }
         }
