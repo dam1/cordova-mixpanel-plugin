@@ -278,7 +278,7 @@ public class MixpanelPlugin extends CordovaPlugin {
             cbCtx.success();
             return true;
         }else if(args.optInt(0)==2){
-            mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1), Integer));
+            mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1)));
             cbCtx.success();
             return true;
         }
