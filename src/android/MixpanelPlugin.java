@@ -6,7 +6,7 @@ import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
 import java.util.Map;;
 import java.util.HashMap;
-import java.util.Iterator
+import java.util.Iterator;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
