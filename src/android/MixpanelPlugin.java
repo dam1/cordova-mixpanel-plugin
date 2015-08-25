@@ -19,10 +19,10 @@ import org.json.JSONObject;
 
 class JSONHelper {
     public static Map<String, Object> jsonToMap(JSONObject json) throws JSONException {
-        Map<String, Integer> retMap = new HashMap<String, Object>();
+        Map<String, Integer> retMap = new HashMap<String, Integer>();
 
         if(json != JSONObject.NULL) {
-            retMap = toMap(json, type);
+            retMap = toMap(json);
         }
         return retMap;
     }
