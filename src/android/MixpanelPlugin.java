@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 class JSONHelper {
-    public static Map<String, Object> jsonToMap(JSONObject json) throws JSONException {
+    public static Map<String, Integer> jsonToMap(JSONObject json) throws JSONException {
         Map<String, Integer> retMap = new HashMap<String, Integer>();
 
         if(json != JSONObject.NULL) {
@@ -33,16 +33,9 @@ class JSONHelper {
         Iterator<String> keysItr = object.keys();
         while(keysItr.hasNext()) {
             String key = keysItr.next();
-            Integer value = object.get(key);
+            Integer value = object.optInt(key);
 
-            if(value instanceof JSONArray) {
-                value = toList((JSONArray) value);
-            }
-
-            else if(value instanceof JSONObject) {
-                value = toMap((JSONObject) value);
-            }
-            map.put(key, value.optInt(0));
+            map.put(key, value);
         }
         return map;
     }
