@@ -8,6 +8,7 @@ import java.util.Map;;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -284,7 +285,7 @@ public class MixpanelPlugin extends CordovaPlugin {
             cbCtx.success();
             return true;
         }else if(args.optInt(0)==2){
-            mixpanel.getPeople().increment(jsonToMap(args.optJSONObject(1)));
+            mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1)));
             cbCtx.success();
             return true;
         }
