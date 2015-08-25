@@ -193,11 +193,11 @@
     NSUInteger increment_type = (NSUInteger)[arguments objectAtIndex:0];
 
     if(increment_type==1){
-        [mixpanel.people increment:[arguments objectAtIndex:1] by:(NSUInteger)[arguments objectAtIndex:2]];
+        [mixpanelInstance.people increment:[arguments objectAtIndex:1] by:(NSUInteger)[arguments objectAtIndex:2]];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         return;
     }else if(increment_type==2){
-        [mixpanel.people increment:[arguments objectAtIndex:1]];
+        [mixpanelInstance.people increment:[arguments objectAtIndex:1]];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         return;
     }
