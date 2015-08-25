@@ -150,7 +150,7 @@ public class MixpanelPlugin extends CordovaPlugin {
             case SET_PUSH_REGISTRATION_ID:
                 return handleSetPushRegistrationId(args, cbCtx);
             case GET_DISTINCT_ID:
-                return handleGetDistinctId(args, cbCtx)
+                return handleGetDistinctId(args, cbCtx);
             default:
                 this.error(cbCtx, "unknown action");
                 return false;
