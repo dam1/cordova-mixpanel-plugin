@@ -35,6 +35,9 @@ mixpanel.track = function(eventName, eventProperties, onSuccess, onFail) {
     exec(onSuccess, onFail, 'Mixpanel', 'track', [eventName, eventProperties]);
 };
 
+mixpanel.getDistinctId =  function(onSuccess, onFail){
+    exec(onSuccess, onFail, 'Mixpanel', 'get_distinct_id', []);
+};
 
 // PEOPLE API
 

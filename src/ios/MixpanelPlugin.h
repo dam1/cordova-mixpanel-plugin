@@ -29,6 +29,7 @@
 -(void)init:(CDVInvokedUrlCommand*)command;
 -(void)reset:(CDVInvokedUrlCommand*)command;
 -(void)track:(CDVInvokedUrlCommand*)command;
+-(void)get_distinct_id:(CDVInvokedUrlCommand*)command;
 
 
 // PEOPLE API

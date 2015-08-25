@@ -74,6 +74,7 @@ public class MixpanelPlugin extends CordovaPlugin {
         INIT("init"),
         RESET("reset"),
         TRACK("track"),
+        GET_DISTINCT_ID("get_distinct_id"),
 
         // PEOPLE API
 
@@ -148,6 +149,8 @@ public class MixpanelPlugin extends CordovaPlugin {
                 return handleInitializePushHandling(args, cbCtx);
             case SET_PUSH_REGISTRATION_ID:
                 return handleSetPushRegistrationId(args, cbCtx);
+            case GET_DISTINCT_ID:
+                return handleGetDistinctId(args, cbCtx)
             default:
                 this.error(cbCtx, "unknown action");
                 return false;
@@ -201,13 +204,9 @@ public class MixpanelPlugin extends CordovaPlugin {
 
 
     private boolean handleIdentify(JSONArray args, final CallbackContext cbCtx) {
-        String uniqueId = args.optString(0, "");
-        if (TextUtils.isEmpty(uniqueId)) {
-            this.error(cbCtx, "missing unique id");
-            return false;
-        }
+        String uniqueId = args.optString(0, MixpanelAPI.getDistinctId().toString());
         mixpanel.identify(uniqueId);
-        cbCtx.success();
+        cbCtx.success(uniqueId);
         return true;
     }
 
@@ -231,7 +230,6 @@ public class MixpanelPlugin extends CordovaPlugin {
         return true;
     }
 
-
     private boolean handleTrack(JSONArray args, final CallbackContext cbCtx) {
         String event = args.optString(0, "");
         if (TextUtils.isEmpty(event)) {
@@ -248,6 +246,10 @@ public class MixpanelPlugin extends CordovaPlugin {
         return true;
     }
 
+    private boolean handleGetDistinctId(JSONArray args, final CallbackContext cbCtx) {
+        cbCtx.success(MixpanelAPI.getDistinctId().toString());
+        return true;
+    }
 
     private boolean handlePeopleIdentify(JSONArray args, final CallbackContext cbCtx) {
         String distinctId = args.optString(0, "");
