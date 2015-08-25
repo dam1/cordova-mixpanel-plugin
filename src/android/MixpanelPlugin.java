@@ -18,17 +18,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 class JSONHelper {
-    public static Map<String, Object> jsonToMap(JSONObject json) throws JSONException {
+    public static Map<String, Object> jsonToMap(JSONObject json, Class<T> type) throws JSONException {
         Map<String, Object> retMap = new HashMap<String, Object>();
 
         if(json != JSONObject.NULL) {
-            retMap = toMap(json);
+            retMap = toMap(json, type);
         }
         return retMap;
     }
 
-    public static Map<String, Object> toMap(JSONObject object) throws JSONException {
-        Map<String, Object> map = new HashMap<String, Object>();
+    public static Map<String, T> toMap(JSONObject object, Class<T> type) throws JSONException {
+        Map<String, T> map = new HashMap<String, Object>();
 
         Iterator<String> keysItr = object.keys();
         while(keysItr.hasNext()) {
@@ -285,7 +285,7 @@ public class MixpanelPlugin extends CordovaPlugin {
             cbCtx.success();
             return true;
         }else if(args.optInt(0)==2){
-            mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1)));
+            mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1), Integer));
             cbCtx.success();
             return true;
         }
