@@ -190,17 +190,19 @@
     }
 
     NSArray* arguments = command.arguments;
-    NSUInteger increment_type = (NSUInteger)[arguments objectAtIndex:0];
+    NSNumber* increment_type = (NSNumber*)[arguments objectAtIndex:0];
 
-    if(increment_type==1){
-        [mixpanelInstance.people increment:[arguments objectAtIndex:1] by:(NSUInteger)[arguments objectAtIndex:2]];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        return;
-    }else if(increment_type==2){
+    NSNumber* default_action = [NSNumber numberWithInt:1];
+    NSNumber* object_action = [NSNumber numberWithInt:2];
+
+    if([increment_type isEqualToNumber:default_action]){
+        [mixpanelInstance.people increment:[arguments objectAtIndex:1] by:[arguments objectAtIndex:2]];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    }else if([increment_type isEqualToNumber:object_action]){
         [mixpanelInstance.people increment:[arguments objectAtIndex:1]];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        return;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     }
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 -(void)setShowNotificationOnActive:(CDVInvokedUrlCommand *)command;
