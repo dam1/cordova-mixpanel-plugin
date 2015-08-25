@@ -278,9 +278,14 @@ public class MixpanelPlugin extends CordovaPlugin {
             cbCtx.success();
             return true;
         }else if(args.optInt(0)==2){
-            mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1)));
-            cbCtx.success();
-            return true;
+            try{
+                mixpanel.getPeople().increment(JSONHelper.jsonToMap(args.optJSONObject(1)));
+                cbCtx.success();
+                return true;
+            } catch(JSONException ex){
+                this.error(cbCtx, ex.message);
+                return false;
+            }
         }
         this.error(cbCtx, "missing people action type");
         return false;
