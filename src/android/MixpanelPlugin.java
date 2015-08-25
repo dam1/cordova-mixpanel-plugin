@@ -278,20 +278,17 @@ public class MixpanelPlugin extends CordovaPlugin {
     }
 
     private boolean handlePeopleIncrement(JSONArray args, final CallbackContext cbCtx) {
-        if (args.optJSONObject(0) == null) {
-            this.error(cbCtx, "missing people action type");
-            return false;
-        }
-        JSONObject properties = args.optJSONObject;
-        if(properties[0]==1){
-            mixpanel.getPeople().increment(properties[1], properties[2]);
+        if(args.optInt(0)==1){
+            mixpanel.getPeople().increment(args.optString(1), args.optInt(2,1));
             cbCtx.success();
             return true;
-        }else if(properties[0]==2){
-            mixpanel.getPeople().increment(jsonToMap(properties[1]));
+        }else if(args.optInt(0)==2){
+            mixpanel.getPeople().increment(jsonToMap(args.optJSONObject(1)));
             cbCtx.success();
             return true;
         }
+        this.error(cbCtx, "missing people action type");
+        return false
     }
 
     private boolean handlePeopleTrackCharge(JSONArray args, final CallbackContext cbCtx) {
