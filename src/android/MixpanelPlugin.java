@@ -288,7 +288,7 @@ public class MixpanelPlugin extends CordovaPlugin {
             return true;
         }
         this.error(cbCtx, "missing people action type");
-        return false
+        return false;
     }
 
     private boolean handlePeopleTrackCharge(JSONArray args, final CallbackContext cbCtx) {
