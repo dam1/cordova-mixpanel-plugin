@@ -247,7 +247,7 @@ public class MixpanelPlugin extends CordovaPlugin {
     }
 
     private boolean handleGetDistinctId(JSONArray args, final CallbackContext cbCtx) {
-        cbCtx.success(mixpanel.getDistinctId().toString());
+        cbCtx.success(MixpanelAPI.getDistinctId().toString());
         return true;
     }
 
