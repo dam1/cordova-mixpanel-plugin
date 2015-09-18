@@ -12,6 +12,11 @@ var exec = require('cordova/exec'),
 
 
 mixpanel.alias = mixpanel.createAlias = function(alias, originalId, onSuccess, onFail) {
+    if(typeof originalId === 'function'){
+       onFail = onSuccess;
+       onSuccess = originalId;
+       originalId = null;
+    }
     exec(onSuccess, onFail, 'Mixpanel', 'alias', [alias + '', originalId + '']);
 };
 
