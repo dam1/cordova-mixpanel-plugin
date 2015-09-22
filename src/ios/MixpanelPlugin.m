@@ -30,7 +30,7 @@
     }
     else
     {
-        if(originalId == (id)[NSNull null] || 0 == [originalId length || [originalId  isEqual: @"null"])
+        if(originalId == (id)[NSNull null] || 0 == [originalId length] || [originalId  isEqual: @"null"])
         {
             originalId = mixpanelInstance.distinctId;
         }
