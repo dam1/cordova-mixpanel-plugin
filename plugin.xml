@@ -79,8 +79,8 @@
         <source-file src="src/ios/MixpanelPlugin.m"/>
 
         <!-- Mixpanel sdk files-->
-        <source-file src="src/ios/Mixpanel/MPSurvey.storyboard" />
-        <source-file src="src/ios/Mixpanel/MPNotification.storyboard" />
+        <header-file src="src/ios/Mixpanel/MPSurvey.storyboard" />
+        <header-file src="src/ios/Mixpanel/MPNotification.storyboard" />
 
         <header-file src="src/ios/Mixpanel/MPABTestDesignerChangeRequestMessage.h" />
         <header-file src="src/ios/Mixpanel/MPABTestDesignerChangeResponseMessage.h" />
