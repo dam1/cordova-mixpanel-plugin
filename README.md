@@ -30,7 +30,7 @@ cordova plugin add https://github.com/dam1/cordova-mixpanel-plugin.git
 ...
 
 
-** create a file /platform/android/build-extras.gradle
+**create a file /platform/android/build-extras.gradle**
 
         dependencies {
             compile "com.mixpanel.android:mixpanel-android:4.6.4"
