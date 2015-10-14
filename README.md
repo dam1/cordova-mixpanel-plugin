@@ -7,7 +7,7 @@
 #### Install
 
 ```
-cordova plugin add https://github.com/samzilverberg/cordova-mixpanel-plugin.git
+cordova plugin add https://github.com/dam1/cordova-mixpanel-plugin.git
 ```
 
 #### Usage
@@ -21,47 +21,20 @@ cordova plugin add https://github.com/samzilverberg/cordova-mixpanel-plugin.git
 - init(token, onSuccess, onFail)
 - reset(onSuccess, onFail)
 - track(eventName, eventProperties, onSuccess, onFail)
+...
 
 **window.mixpanel.people:**
 
 - identify(distinctId, onSuccess, onFail)
 - set(peopleProperties, onSuccess, onFail)
+...
 
 
-## TODOs
+** create a file /platform/android/build-extras.gradle
 
-- add more Mixpanel People operations
-  - set once, unset, increment, delete (more?)
-- make sure ios/android use same error messages
-- refactor ios code
-  - remove code duplication of checking that mixpanel was init
-
-
-
-## Troubleshooting
-
-### IOS
-
-#### hey i installed the plugin and now build fails, why?
-
-open your xcode proj, goto **build phases -> link binary with libraries**:
-  - drag all files under folder 'frameworks' (on the left) to here
-  - add the following if missing:
-      - libicucore
-      - cfnetwork
-
-#### i get error 'Mixpanel' plugin not found, check config.xml
-
-appears to be some problem of the xcode proj settings.
-only working solution i found so far is to
-```
-cordova platform remove ios
-cordova platform add ios
-cordova build ios
-```
-and setting up the build phase correctly again, as described in last question.
-
-
+        dependencies {
+            compile "com.mixpanel.android:mixpanel-android:4.6.4"
+        }
 
 ##### Keywords
 mixpanel, plugin cordova, phonegap, ionic, android, ios
